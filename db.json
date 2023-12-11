@@ -1,0 +1,62 @@
+{
+  "groups": [
+    {
+      "id": 1,
+      "name": "default",
+      "creationDate": "2023-12-05T16:26:26.251Z"
+    },
+    {
+      "name": "admin-user",
+      "creationDate": "2023-12-11T11:52:57.062Z",
+      "id": 2
+    },
+    {
+      "name": "testing-group",
+      "creationDate": "2023-12-11T13:07:00.314Z",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John",
+      "lastname": "Doe",
+      "email": "john.doe@email.com",
+      "group": [
+        1
+      ],
+      "creationDate": "2023-12-05T16:26:26.251Z"
+    },
+    {
+      "name": "Ashley",
+      "lastname": "Thompsom",
+      "email": "ashley.thompsom@email.com",
+      "group": [
+        2
+      ],
+      "creationDate": "2023-12-11T11:54:20.435Z",
+      "id": 2
+    },
+    {
+      "name": "Alexia",
+      "lastname": "Putellas",
+      "email": "alexia.putellas@email.com",
+      "group": [
+        1,
+        2
+      ],
+      "creationDate": "2023-12-11T11:58:17.734Z",
+      "id": 4
+    },
+    {
+      "name": "test",
+      "lastname": "user",
+      "email": "test.user@gmail.com",
+      "group": [
+        1
+      ],
+      "creationDate": "2023-12-11T12:45:18.673Z",
+      "id": 5
+    }
+  ]
+}

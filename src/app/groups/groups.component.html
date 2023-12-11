@@ -1,0 +1,84 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" routerLink="/"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Group Management</li>
+  </ol>
+</nav>
+
+<div class="main-container">
+ 
+  <div class="control-panel">
+    <div class="row">
+      <div class="col-lg-7 panel-header">
+        <h2>Group Management</h2>
+      </div>
+      <div class="col-lg-2">
+        <button class="btn blue-1-button display-inline-flex" (click)="openGroupDialog()">Add Group &nbsp;
+          <mat-icon>group_add</mat-icon>
+        </button>
+      </div>
+      <div class="col-lg-3">
+        <input type="text" class="form-control" id="search" placeholder="Search group" (keyup)="searchGroup($event)">
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-12">
+  
+        <div>
+          <div class="alert alert-danger alert-message" role="alert" *ngIf="deleteError">
+            Group cannot be deleted. There are some users belonging to this group. Please delete the users and try again.
+          </div>
+
+          <table mat-table [dataSource]="dataSource">
+        
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+        
+            <!-- creationDate Column -->
+            <ng-container matColumnDef="creationDate">
+              <th mat-header-cell *matHeaderCellDef> Lastname </th>
+              <td mat-cell *matCellDef="let element"> {{element.creationDate | date}} </td>
+            </ng-container>
+
+            <!-- Details Column -->
+            <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">
+                <button class="btn pink-button" routerLink="/groups/{{element.id}}">Details</button>
+                </td>
+            </ng-container>
+        
+            <!-- Delete Column -->
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <button class="icon-button" (click)="openDialog(element.id)">
+                  <mat-icon aria-hidden="false" aria-label="Delete" fontIcon="delete"></mat-icon>
+                </button>
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        
+          <mat-paginator [pageSizeOptions]="[10, 15, 20]"
+                         showFirstLastButtons
+                         aria-label="Select page">
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+    
+  </div>
